@@ -1,18 +1,61 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production"
-    },
-    "devDependencies": {
-        "axios": "^0.21",
-        "laravel-mix": "^6.0.6",
-        "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
-    }
+  "private": true,
+  "scripts": {
+    "intl": "./scripts/build-intl.sh",
+    "clean": "rm -rf public/static && rm -rf public/precache-*",
+    "build:scripts": "react-scripts build",
+    "build:views": "php artisan assets:view",
+    "build": "npm run clean && npm run build:scripts && npm run build:views",
+    "start": "react-scripts start",
+    "server": "react-scripts start"
+  },
+  "supportedLocales": [
+    "fr",
+    "en"
+  ],
+  "dependencies": {
+    "@folklore/size": "^0.1.14",
+    "@folklore/socket": "^0.4.0",
+    "@formatjs/intl-pluralrules": "^4.0.11",
+    "classnames": "^2.2.6",
+    "domready": "^1.0.8",
+    "intersection-observer": "^0.12.0",
+    "intl": "^1.2.5",
+    "lodash": "^4.17.21",
+    "prop-types": "^15.7.2",
+    "query-string": "^6.14.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-intl": "^5.13.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "resize-observer-polyfill": "^1.5.1"
+  },
+  "devDependencies": {
+    "@folklore/react-scripts": "^4.0.3",
+    "@prettier/plugin-php": "^0.16.1",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-react-intl": "^8.2.25",
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "http-proxy-middleware": "^1.0.6",
+    "node-sass": "^4.0.0",
+    "postcss": "^8.2.1",
+    "postcss-import": "^14.0.0",
+    "prettier": "^2.2.1",
+    "react-dev-utils": "^11.0.4",
+    "stylelint": "^13.12.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-property-sort-order-smacss": "^7.0.0",
+    "stylelint-config-recommended": "^4.0.0",
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-scss": "^3.19.0",
+    "webpack": "4.44.2"
+  }
 }
