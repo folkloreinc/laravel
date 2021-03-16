@@ -1,0 +1,10 @@
+@import '../commons/variables';
+@import '../commons/placeholders';
+
+.container {
+    @extend %reset-button;
+
+    .icon {
+        padding: 0 5px 0 0;
+    }
+}

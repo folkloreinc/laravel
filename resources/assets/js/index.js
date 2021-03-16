@@ -1,6 +1,6 @@
-import domready from 'domready';
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
+import domready from 'domready';
 
 const needsPolyfill = () =>
     typeof window.Intl === 'undefined' ||
@@ -9,21 +9,29 @@ const needsPolyfill = () =>
     typeof window.ResizeObserver === 'undefined';
 
 const boot = () => {
+    const propsEl = document.getElementById('app-props');
+    const props = propsEl !== null ? JSON.parse(propsEl.innerHTML) || {} : {};
+    const { isPanneau = false } = props;
+
     const renderApp = (App) => {
-        const propsEl = document.getElementById('app-props');
-        const props = propsEl !== null ? JSON.parse(propsEl.innerHTML) || {} : {};
         const appEl = document.getElementById('app');
-        render(React.createElement(App, props), appEl);
-    }
+        const app = React.createElement(App, props);
+        ReactDOM.render(app, appEl);
+    };
 
-    const onLoaded = ({ default: App }) => renderApp(App);
+    const onAppLoaded = ({ default: App }) => renderApp(App);
 
-    if (needsPolyfill()) {
-        import(/* webpackChunkName: "app-polyfill" */'./app.polyfill').then(onLoaded);
+    const withPolyfills = needsPolyfill();
+    if (withPolyfills && isPanneau) {
+        import(/* webpackChunkName: "panneau-polyfill" */ './panneau.polyfill').then(onAppLoaded);
+    } else if (withPolyfills && !isPanneau) {
+        import(/* webpackChunkName: "app-polyfill" */ './app.polyfill').then(onAppLoaded);
+    } else if (isPanneau) {
+        import(/* webpackChunkName: "panneau" */ './components/Panneau').then(onAppLoaded);
     } else {
-        import(/* webpackChunkName: "app" */'./app').then(onLoaded);
+        import(/* webpackChunkName: "app" */ './components/App').then(onAppLoaded);
     }
-}
+};
 
 const ready = (document.readyState || 'loading') !== 'loading';
 if (ready) {

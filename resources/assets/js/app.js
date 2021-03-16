@@ -1,3 +1,3 @@
-import Container from './components/Container';
+import App from './components/App';
 
-export default Container;
+export default App;

@@ -1,0 +1,75 @@
+/**
+ * Base colors
+ */
+
+
+$color-black: #000;
+$color-gray: #999;
+$color-dark-gray: #666;
+$color-light-gray: #ccc;
+$color-white: #fff;
+
+/**
+ * Colors
+ */
+
+$color-background: $color-black;
+$color-text: $color-white;
+$color-menu: $color-black;
+$color-links: $color-gray;
+
+/**
+ * Fonts
+ */
+
+$font-text: plain, helvetica, arial, sans-serif;
+$font-title: frac, helvetica, arial, sans-serif;
+
+/**
+ * Font sizes
+ */
+$font-size-smaller: 12px;
+$font-size-small: 14px;
+$font-size-normal: 16px;
+$font-size-normal-large: 18px;
+$font-size-medium-small: 20px;
+$font-size-medium: 24px;
+$font-size-medium-large: 30px;
+$font-size-large-small: 32px;
+$font-size-large: 36px;
+
+/**
+ * Transitions
+ */
+$transition-main-time: 0.25s;
+$transition-main: $transition-main-time ease-in-out;
+$transition-text: 0.15s ease-out;
+$transition-box: 0.15s ease-out;
+
+/**
+ * Containers
+ */
+$container-medium: 600px;
+$container-small: 400px;
+$box-padding: 20px;
+
+/**
+ * Screen size
+ */
+
+$very-small-screen: 375px;
+$small-screen: 500px;
+$medium-screen: 768px;
+$large-screen: 1200px;
+
+/**
+ * Media queries
+ */
+
+$mq-small-screen: 'only screen and (min-width: #{$small-screen})';
+$mq-medium-screen: 'only screen and (min-width: #{$medium-screen})';
+$mq-large-screen: 'only screen and (min-width: #{$large-screen})';
+
+$mq-small-height: 'only screen and (min-height: #{$small-screen})';
+$mq-medium-height: 'only screen and (min-height: #{$medium-screen})';
+$mq-large-height: 'only screen and (min-height: #{$large-screen})';

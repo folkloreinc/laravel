@@ -1,0 +1,13 @@
+@import '../commons/variables';
+@import '../commons/placeholders';
+
+.container {
+    position: relative;
+
+    ul,
+    ol {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+}

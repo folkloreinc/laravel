@@ -16,3 +16,4 @@ use App\Http\Controllers\AppController;
 */
 
 Route::get('/', [AppController::class, 'show'])->name('home');
+Route::get('/home.json', [AppController::class, 'show'])->name('home.json');

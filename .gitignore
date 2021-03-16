@@ -11,3 +11,15 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+
+/public/static
+/resources/views/assets.blade.php
+/resources/lang/extract/*.json
+/resources/lang/extract/*.mo
+!/resources/lang/extract/messages.json
+/public/asset-manifest.json
+/public/precache-manifest.*
+/public/service-worker.js
+
+.env.local
+.eslintcache

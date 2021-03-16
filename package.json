@@ -14,10 +14,14 @@
     "en"
   ],
   "dependencies": {
+    "@folklore/fetch": "^0.1.10",
+    "@folklore/fonts": "0.0.5",
     "@folklore/size": "^0.1.14",
     "@folklore/socket": "^0.4.0",
     "@formatjs/intl-pluralrules": "^4.0.11",
+    "change-case": "^4.1.2",
     "classnames": "^2.2.6",
+    "detect-passive-events": "^2.0.3",
     "domready": "^1.0.8",
     "intersection-observer": "^0.12.0",
     "intl": "^1.2.5",
@@ -26,10 +30,12 @@
     "query-string": "^6.14.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
     "react-intl": "^5.13.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "resize-observer-polyfill": "^1.5.1"
+    "resize-observer-polyfill": "^1.5.1",
+    "wolfy87-eventemitter": "^5.2.9"
   },
   "devDependencies": {
     "@folklore/react-scripts": "^4.0.3",
