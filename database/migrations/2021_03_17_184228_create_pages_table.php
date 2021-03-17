@@ -35,6 +35,7 @@ class CreatePagesTable extends Migration
 
             $table->longText('data')->nullable();
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable()->default(null);
         });
     }
 
