@@ -9,7 +9,7 @@ import PageMeta from '../partials/PageMeta';
 import Label from '../partials/Label';
 import Button from '../buttons/Button';
 
-import styles from '../../styles/pages/error.module.scss';
+import styles from '../../../styles/pages/error.module.scss';
 
 export const messages = defineMessages({
     metaTitle401: {

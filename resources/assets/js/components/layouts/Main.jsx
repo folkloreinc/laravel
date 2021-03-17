@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useFonts } from '@folklore/fonts';
 
-import styles from '../../styles/layouts/main.module.scss';
+import styles from '../../../styles/layouts/main.module.scss';
 
 const propTypes = {
     children: PropTypes.node.isRequired,

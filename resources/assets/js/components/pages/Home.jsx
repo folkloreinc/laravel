@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react';
 import { usePage } from '../../contexts/PagesContext';
 import { useUrlGenerator } from '../../contexts/RoutesContext';
 
-import styles from '../../styles/pages/home.module.scss';
+import styles from '../../../styles/pages/home.module.scss';
 
 const propTypes = {};
 
