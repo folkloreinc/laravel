@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useRef, useEffect } from 'react';
 // import PropTypes from 'prop-types';
 import { Switch, Route, useLocation } from 'react-router';

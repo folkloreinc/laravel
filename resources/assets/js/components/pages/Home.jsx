@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars, no-console */
 import React, { useRef, useEffect } from 'react';
 
 import { usePage } from '../../contexts/PagesContext';
 import { useUrlGenerator } from '../../contexts/RoutesContext';
+import Logo from "../icons/Folklore";
 
 import styles from '../../../styles/pages/home.module.scss';
 
@@ -31,6 +33,9 @@ const HomePage = () => {
     return (
         <div className={styles.container}>
             <p>Home {currentPage ? currentPage.title : null}</p>
+            <div className={styles.logoContainer}>
+                <Logo className={styles.logo} color="#fff" />
+            </div>
         </div>
     );
 };
