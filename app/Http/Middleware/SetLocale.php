@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\Translation\HasLocalePreference;
 
 class SetLocale
 {
@@ -23,7 +24,7 @@ class SetLocale
         $session = $request->hasSession() ? $request->session() : null;
         $user = $request->user();
         $sessionLocale = !is_null($session) ? $session->get('locale') : null;
-        $userLocale = !is_null($user) ? $user->preferredLocale() : null;
+        $userLocale = !is_null($user) && $user instanceof HasLocalePreference ? $user->preferredLocale() : null;
         $routeLocale = data_get(
             $request->route()->getAction(),
             'locale',

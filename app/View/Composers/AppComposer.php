@@ -33,14 +33,11 @@ class AppComposer
      */
     public function compose(View $view)
     {
-        $user = $this->request->user();
-
         $view->props = [
             'locale' => app()->getLocale(),
             'locales' => config('app.locales'),
             'routes' => $view->routes,
             'translations' => $view->translations,
-            'user' => !is_null($user) ? new UserResource($user) : null,
         ];
     }
 }

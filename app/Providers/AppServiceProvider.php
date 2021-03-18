@@ -20,15 +20,7 @@ class AppServiceProvider extends ServiceProvider
 
     protected function registerRepositories()
     {
-        $this->app->bind(
-            \App\Contracts\Repositories\Users::class,
-            \App\Repositories\UsersRepository::class
-        );
-
-        $this->app->bind(
-            \App\Contracts\Repositories\Pages::class,
-            \App\Repositories\PagesRepository::class
-        );
+        //
     }
 
     /**
