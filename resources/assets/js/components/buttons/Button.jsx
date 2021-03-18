@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 import * as AppPropTypes from '../../lib/PropTypes';
 
-import styles from '../../styles/buttons/button.module.scss';
+import styles from '../../../styles/buttons/button.module.scss';
 
 const propTypes = {
     type: PropTypes.string,

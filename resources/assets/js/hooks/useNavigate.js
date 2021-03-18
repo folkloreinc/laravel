@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import { useHistory } from 'react-router-dom';
-import useUrlGenerator from './useEditionUrlGenerator';
+import { useUrlGenerator } from '../contexts/RoutesContext';
 
 const useNavigate = (routeName, opts) => {
     const history = useHistory();

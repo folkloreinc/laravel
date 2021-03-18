@@ -2,7 +2,6 @@
  * Base colors
  */
 
-
 $color-black: #000;
 $color-gray: #999;
 $color-dark-gray: #666;
@@ -61,14 +60,17 @@ $very-small-screen: 375px;
 $small-screen: 500px;
 $medium-screen: 768px;
 $large-screen: 1200px;
+$very-large-screen: 1500px;
 
 /**
  * Media queries
  */
 
+$mq-very-small-screen: 'only screen and (min-width: #{$very-small-screen})';
 $mq-small-screen: 'only screen and (min-width: #{$small-screen})';
 $mq-medium-screen: 'only screen and (min-width: #{$medium-screen})';
 $mq-large-screen: 'only screen and (min-width: #{$large-screen})';
+$mq-very-large-screen: 'only screen and (min-width: #{$very-large-screen})';
 
 $mq-small-height: 'only screen and (min-height: #{$small-screen})';
 $mq-medium-height: 'only screen and (min-height: #{$medium-screen})';
