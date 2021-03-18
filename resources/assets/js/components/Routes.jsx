@@ -24,7 +24,7 @@ const AppRoutes = ({ statusCode: initialStatusCode }) => {
     // const route = useUrlGenerator();
     // const user = useUser();
 
-    const [statusCode, setStatusCode] = useState(initialStatusCode);
+    const [statusCode, setStatusCode] = useState(initialStatusCode); // eslint-disable-line no-unused-vars
     const location = useLocation();
     const initialLocationRef = useRef(location);
     useEffect(() => {

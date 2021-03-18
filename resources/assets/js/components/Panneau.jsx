@@ -5,7 +5,7 @@ import * as AppPropTypes from '../lib/PropTypes';
 import Container from './Container';
 // import Routes from './panneau/Routes';
 
-import '../styles/panneau.global.scss';
+import '../../styles/panneau.global.scss';
 
 const propTypes = {
     // eslint-disable-next-line react/forbid-prop-types

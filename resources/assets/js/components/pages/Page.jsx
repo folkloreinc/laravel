@@ -4,7 +4,7 @@ import { useRouteMatch } from 'react-router';
 
 import { getComponentFromName } from '../../lib/utils';
 import { usePage } from '../../contexts/PagesContext';
-import { useUrlGenerator } from '../contexts/RoutesContext';
+import { useUrlGenerator } from '../../contexts/RoutesContext';
 import * as PageComponents from './pages';
 import ErrorPage from './Error';
 

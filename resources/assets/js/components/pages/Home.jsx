@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 
 import { usePage } from '../../contexts/PagesContext';
-import { useUrlGenerator } from '../../contexts/RoutesContext';
+// import { useUrlGenerator } from '../../contexts/RoutesContext';
 
 import styles from '../../../styles/pages/home.module.scss';
 
@@ -10,8 +10,8 @@ const propTypes = {};
 const defaultProps = {};
 
 const HomePage = () => {
-    const route = useUrlGenerator();
-    const url = route('home');
+    // const route = useUrlGenerator();
+    // const url = route('home');
     const { page } = usePage('home');
     const lastPageRef = useRef(page);
     const currentPage = page || lastPageRef.current;
@@ -22,10 +22,8 @@ const HomePage = () => {
         }
     }, [page]);
 
-    console.log('home page');
-
     if (page === null) {
-        console.log('no page data');
+        // console.log('no page data');
     }
 
     return (

@@ -9,7 +9,7 @@ import { SiteProvider } from '../contexts/SiteContext';
 import Container from './Container';
 import Routes from './Routes';
 
-import '../styles/styles.global.scss';
+import '../../styles/styles.global.scss';
 
 const propTypes = {
     locale: PropTypes.string.isRequired,
