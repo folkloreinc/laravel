@@ -3,4 +3,23 @@
 
 .container {
     //
+    .logoContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 96vh;
+
+        .logo {
+            width: 150px;
+            height: auto;
+            transition: filter 0.2s ease-in-out;
+            cursor: pointer;
+            filter: drop-shadow(0 0 12px #ff010099);
+
+            &:hover {
+                filter: drop-shadow(0 0 18px #ff010099);
+            }
+        }
+    }
 }
