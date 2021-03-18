@@ -1,13 +1,14 @@
-/* eslint-disable no-unused-vars */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { IntlProvider } from 'react-intl';
 import { BrowserRouter } from 'react-router-dom';
 
 import * as AppPropTypes from '../lib/PropTypes';
+import { SiteProvider } from '../contexts/SiteContext';
 import { RoutesProvider } from '../contexts/RoutesContext';
+import { KeysProvider } from '../contexts/KeysContext';
 import { ApiProvider } from '../contexts/ApiContext';
+import App from './App';
 
 const propTypes = {
     locale: PropTypes.string.isRequired,
@@ -24,9 +25,15 @@ const defaultProps = {
 const Container = ({ locale, translations, user, routes, children }) => (
     <IntlProvider locale={locale} messages={translations[locale] || translations}>
         <BrowserRouter>
-            <RoutesProvider routes={routes}>
-                <ApiProvider>{children}</ApiProvider>
-            </RoutesProvider>
+            <SiteProvider locales={locales}>
+                <RoutesProvider routes={routes}>
+                    <KeysProvider keys={keys}>
+                        <ApiProvider>
+                            <App />
+                        </ApiProvider>
+                    </KeysProvider>
+                </RoutesProvider>
+            </SiteProvider>
         </BrowserRouter>
     </IntlProvider>
 );

@@ -24,7 +24,7 @@ const boot = () => {
     if (withPolyfills) {
         import(/* webpackChunkName: "app-polyfill" */ './app.polyfill').then(onAppLoaded);
     } else {
-        import(/* webpackChunkName: "app" */ './components/App').then(onAppLoaded);
+        import(/* webpackChunkName: "app" */ './app').then(onAppLoaded);
     }
 };
 

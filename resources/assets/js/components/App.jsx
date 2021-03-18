@@ -1,44 +1,48 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import React, { useMemo } from 'react';
-import PropTypes from 'prop-types';
+/* eslint-disable no-unused-vars */
+import React, { useState, useRef, useEffect } from 'react';
+// import PropTypes from 'prop-types';
+import { Switch, Route, useLocation } from 'react-router';
+
+import { useRoutes } from '../contexts/RoutesContext';
+
+import MainLayout from './layouts/Main';
+import HomePage from './pages/Home';
+import ErrorPage from './pages/Error';
 
 import * as AppPropTypes from '../lib/PropTypes';
-import { KeysProvider } from '../contexts/KeysContext';
-import { SiteProvider } from '../contexts/SiteContext';
-import Container from './Container';
-import Routes from './Routes';
-
-import '../../styles/styles.global.scss';
 
 const propTypes = {
-    locale: PropTypes.string.isRequired,
-    locales: PropTypes.arrayOf(PropTypes.string).isRequired,
-    translations: AppPropTypes.translations.isRequired,
-    routes: AppPropTypes.routes.isRequired,
-    user: AppPropTypes.user,
+    statusCode: AppPropTypes.statusCode,
 };
 
 const defaultProps = {
-    user: null,
+    statusCode: null,
 };
 
-const App = ({ locale, locales, translations, routes, user }) => {
-    const keys = useMemo(
-        () => ({
-            key: null,
-        }),
-        [],
-    );
+const App = ({ statusCode: initialStatusCode }) => {
+    const routes = useRoutes();
+    // const route = useUrlGenerator();
+    // const user = useUser();
+
+    const [statusCode, setStatusCode] = useState(initialStatusCode); // eslint-disable-line no-unused-vars
+    const location = useLocation();
+    const initialLocationRef = useRef(location);
+    useEffect(() => {
+        if (initialLocationRef.current !== location) {
+            setStatusCode(null);
+        }
+    }, [location]);
+
     return (
-        <KeysProvider keys={keys}>
-            <SiteProvider locales={locales}>
-                <Container locale={locale} translations={translations} routes={routes} user={user}>
-                    <Routes />
-                </Container>
-            </SiteProvider>
-        </KeysProvider>
+        <MainLayout>
+            <Switch>
+                <Route path={routes.home} exact component={HomePage} />
+                <Route path="*" component={ErrorPage} />
+            </Switch>
+        </MainLayout>
     );
 };
+
 App.propTypes = propTypes;
 App.defaultProps = defaultProps;
 
