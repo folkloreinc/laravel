@@ -12,17 +12,18 @@ import App from './App';
 
 const propTypes = {
     locale: PropTypes.string.isRequired,
+    locales: PropTypes.arrayOf(PropTypes.string),
+    keys: PropTypes.objectOf(PropTypes.string),
     translations: AppPropTypes.translations.isRequired,
-    user: AppPropTypes.user,
     routes: AppPropTypes.routes.isRequired,
-    children: PropTypes.node.isRequired,
 };
 
 const defaultProps = {
-    user: null,
+    locales: null,
+    keys: null,
 };
 
-const Container = ({ locale, translations, user, routes, children }) => (
+const Container = ({ locale, translations, locales, routes, keys }) => (
     <IntlProvider locale={locale} messages={translations[locale] || translations}>
         <BrowserRouter>
             <SiteProvider locales={locales}>

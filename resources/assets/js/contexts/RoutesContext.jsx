@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { useContext, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { generatePath, useHistory } from 'react-router';

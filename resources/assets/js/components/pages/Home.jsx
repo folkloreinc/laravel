@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars, no-console */
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 
 import Logo from '../icons/Folklore';
 
@@ -11,14 +10,11 @@ const defaultProps = {};
 
 const HomePage = () => (
     <div className={styles.container}>
-        <a
-            className={styles.logoContainer}
-            href="https://folkloreinc.ca/fr"
-            target="_blank"
-            rel="no-opener noreferrer"
-        >
-            <Logo className={styles.logo} color="#fff" />
-        </a>
+        <div className={styles.logoContainer}>
+            <a href="https://folkloreinc.ca/fr" target="_blank" rel="no-opener noreferrer">
+                <Logo className={styles.logo} />
+            </a>
+        </div>
     </div>
 );
 HomePage.propTypes = propTypes;

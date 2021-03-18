@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useRef, useEffect } from 'react';
 // import PropTypes from 'prop-types';
 import { Switch, Route, useLocation } from 'react-router';
@@ -21,9 +20,6 @@ const defaultProps = {
 
 const App = ({ statusCode: initialStatusCode }) => {
     const routes = useRoutes();
-    // const route = useUrlGenerator();
-    // const user = useUser();
-
     const [statusCode, setStatusCode] = useState(initialStatusCode); // eslint-disable-line no-unused-vars
     const location = useLocation();
     const initialLocationRef = useRef(location);

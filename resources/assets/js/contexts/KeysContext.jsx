@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
@@ -14,11 +13,13 @@ export const useKey = (name) => {
 const propTypes = {
     keys: PropTypes.shape({
         stripe: PropTypes.string,
-    }).isRequired,
+    }),
     children: PropTypes.node.isRequired,
 };
 
-const defaultProps = {};
+const defaultProps = {
+    keys: null,
+};
 
 export const KeysProvider = ({ keys, children }) => (
     <KeysContext.Provider value={keys}>{children}</KeysContext.Provider>
