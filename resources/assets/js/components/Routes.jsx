@@ -43,6 +43,7 @@ const AppRoutes = ({ statusCode: initialStatusCode }) => {
         </MainLayout>
     );
 };
+
 AppRoutes.propTypes = propTypes;
 AppRoutes.defaultProps = defaultProps;
 

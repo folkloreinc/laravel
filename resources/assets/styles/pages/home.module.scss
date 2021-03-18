@@ -13,12 +13,12 @@
         .logo {
             width: 150px;
             height: auto;
-            transition: filter 0.2s ease-in-out;
+            transition: filter 0.2s ease-out;
             cursor: pointer;
-            filter: drop-shadow(0 0 12px #ff010099);
+            filter: drop-shadow(0 0 15px #ff0100);
 
             &:hover {
-                filter: drop-shadow(0 0 18px #ff010099);
+                filter: drop-shadow(0 0 23px #ff0100);
             }
         }
     }

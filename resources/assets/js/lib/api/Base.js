@@ -49,16 +49,15 @@ class Base {
         const url = `${path}${
             queryString !== null && queryString.length > 0 ? `?${queryString}` : ''
         }`;
-        const { withSession = false, withCredentials = false, ...otherOptions } = opts || {};
-        const requestOptions =
-            withSession || withCredentials
-                ? {
-                      credentials: 'include',
-                      headers: getCSRFHeaders(),
-                      ...this.options,
-                      ...otherOptions,
-                  }
-                : { ...this.options, ...otherOptions };
+        const { withCredentials = false, ...otherOptions } = opts || {};
+        const requestOptions = withCredentials
+            ? {
+                  credentials: 'include',
+                  headers: getCSRFHeaders(),
+                  ...this.options,
+                  ...otherOptions,
+              }
+            : { ...this.options, ...otherOptions };
 
         const { headers, ...options } = requestOptions || {};
 
@@ -74,6 +73,7 @@ class Base {
         }).catch((e) => console.log(e)); // eslint-disable-line
     }
 
+    // eslint-disable-next-line class-methods-use-this
     request(path, method, data = null, opts = {}) {
         const finalMethod = method !== 'GET' ? 'POST' : 'GET';
         const needsMethodOverride = finalMethod !== method;
@@ -84,15 +84,14 @@ class Base {
         const url = `${path}${
             queryString !== null && queryString.length > 0 ? `?${queryString}` : ''
         }`;
-        const { withSession = false, withCredentials = false, ...otherOptions } = opts || {};
-        const requestOptions =
-            withSession || withCredentials
-                ? {
-                      credentials: 'include',
-                      headers: getCSRFHeaders(),
-                      ...otherOptions,
-                  }
-                : otherOptions;
+        const { withCredentials = false, ...otherOptions } = opts || {};
+        const requestOptions = withCredentials
+            ? {
+                  credentials: 'include',
+                  headers: getCSRFHeaders(),
+                  ...otherOptions,
+              }
+            : otherOptions;
 
         const request = () =>
             finalMethod === 'POST'
@@ -107,21 +106,7 @@ class Base {
                       requestOptions,
                   )
                 : getJSON(url, requestOptions);
-        return withSession ? this.requestSession().then(() => request()) : request();
-    }
-
-    requestSession() {
-        const { sanctumPrefix } = this.options;
-        if (this.sessionRequested) {
-            return Promise.resolve();
-        }
-        return fetch(`/${sanctumPrefix}/csrf-cookie`, {
-            method: 'GET',
-            credentials: 'include',
-        }).then((response) => {
-            this.sessionRequested = true;
-            return response;
-        });
+        return request();
     }
 }
 

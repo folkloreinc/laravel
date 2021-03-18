@@ -11,7 +11,6 @@ const needsPolyfill = () =>
 const boot = () => {
     const propsEl = document.getElementById('app-props');
     const props = propsEl !== null ? JSON.parse(propsEl.innerHTML) || {} : {};
-    const { isPanneau = false } = props;
 
     const renderApp = (App) => {
         const appEl = document.getElementById('app');
@@ -22,12 +21,8 @@ const boot = () => {
     const onAppLoaded = ({ default: App }) => renderApp(App);
 
     const withPolyfills = needsPolyfill();
-    if (withPolyfills && isPanneau) {
-        import(/* webpackChunkName: "panneau-polyfill" */ './panneau.polyfill').then(onAppLoaded);
-    } else if (withPolyfills && !isPanneau) {
+    if (withPolyfills) {
         import(/* webpackChunkName: "app-polyfill" */ './app.polyfill').then(onAppLoaded);
-    } else if (isPanneau) {
-        import(/* webpackChunkName: "panneau" */ './components/Panneau').then(onAppLoaded);
     } else {
         import(/* webpackChunkName: "app" */ './components/App').then(onAppLoaded);
     }
