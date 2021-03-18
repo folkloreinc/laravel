@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react';
 
 import { usePage } from '../../contexts/PagesContext';
 import { useUrlGenerator } from '../../contexts/RoutesContext';
-import Logo from "../icons/Folklore";
+import Logo from '../icons/Folklore';
 
 import styles from '../../../styles/pages/home.module.scss';
 
@@ -25,7 +25,6 @@ const HomePage = () => {
     }, [page]);
 
     console.log('home page');
-
     if (page === null) {
         console.log('no page data');
     }
@@ -33,9 +32,14 @@ const HomePage = () => {
     return (
         <div className={styles.container}>
             <p>Home {currentPage ? currentPage.title : null}</p>
-            <div className={styles.logoContainer}>
+            <a
+                className={styles.logoContainer}
+                href="https://folkloreinc.ca/fr"
+                target="_blank"
+                rel="no-opener noreferrer"
+            >
                 <Logo className={styles.logo} color="#fff" />
-            </div>
+            </a>
         </div>
     );
 };
