@@ -14,7 +14,6 @@ export const useRoutes = () => {
 
 export const useUrlGenerator = () => {
     const { routes, basePath } = useContext(RoutesContext);
-    // console.log('edition', edition, routes, basePath);
     const urlGenerator = useCallback(
         (key, data, locale = null) => {
             const finalKey = locale !== null ? `${locale}.${key}` : key;

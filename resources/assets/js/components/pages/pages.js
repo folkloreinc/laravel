@@ -1,2 +1,2 @@
-export { default as Page } from './PageNormal';
-//
+export { default as Home } from './Home';
+export { default as Error } from './Error';

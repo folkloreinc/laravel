@@ -14,7 +14,6 @@ const defaultProps = {};
 const HomePage = () => {
     // const route = useUrlGenerator();
     // const url = route('home');
-
     const { page } = usePage('home');
     const lastPageRef = useRef(page);
     const currentPage = page || lastPageRef.current;

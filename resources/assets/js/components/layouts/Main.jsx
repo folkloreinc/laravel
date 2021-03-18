@@ -19,7 +19,7 @@ const defaultProps = {
             families: ['Rubik:400,600', 'Open Sans:400'],
         },
         custom: {
-            families: ['Apercu'],
+            families: [''],
         },
     },
 };
