@@ -10,6 +10,8 @@ import ErrorPage from './pages/Error';
 
 import * as AppPropTypes from '../lib/PropTypes';
 
+import '../../styles/styles.global.scss'
+
 const propTypes = {
     statusCode: AppPropTypes.statusCode,
 };
